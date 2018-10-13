@@ -31,6 +31,16 @@ bool Game::init(const char*title, int xpos, int ypos,
 		{
 			return false;
 		}
+		//토끼 애니메이션 추가
+		if (!TheTextureManager::Instance()->load("Assets/animate-Rabbit.png", "Rabbit", m_pRenderer))
+		{
+			return false;
+		}
+		//풀때기 이미지 추가
+		if (!TheTextureManager::Instance()->load("Assets/grass.png", "grass", m_pRenderer))
+		{
+			return false;
+		}
 
 		//SDL_QueryTexture(m_pTexture, NULL, NULL, &m_sourceRectangle.w, &m_sourceRectangle.h);
 
@@ -54,12 +64,20 @@ bool Game::init(const char*title, int xpos, int ypos,
 void Game::render()
 {
 	SDL_RenderClear(m_pRenderer);
+
 	//원본 사각형과 대상 사각형의 위치와 크기에 따라 화면에 다르게 나타남
 	//SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle, &m_destinationRectangle);
 	//m_textureManager.draw("animate", 0, 0, 128, 82, m_pRenderer);
 	//m_textureManager.drawFrame("animate", 100, 100, 128, 82, 1, m_currentFrame, m_pRenderer);
-	TheTextureManager::Instance()->draw("animate", 0, 0, 128, 82, m_pRenderer);
+	/*TheTextureManager::Instance()->draw("animate", 0, 0, 128, 82, m_pRenderer);
 	TheTextureManager::Instance()->drawFrame("animate", 100, 100,128 ,82, 1, m_currentFrame, m_pRenderer);
+	TheTextureManager::Instance()->drawFrame("animate", 200, 200, 128, 82, 1, m_currentFrame2, m_pRenderer);
+	TheTextureManager::Instance()->drawFrame("animate", 300, 300, 128, 82, 1, ((SDL_GetTicks() / 25) % 6), m_pRenderer);*/
+
+
+	//TheTextureManager::Instance()->drawFrame("Rabbit", 0, 0, 32, 32, 1, m_currentFrame, m_pRenderer);
+	TheTextureManager::Instance()->draw("grass", 0, 0, 32, 32, m_pRenderer);
+	TheTextureManager::Instance()->drawFrame("Rabbit", 0, 0, 32, 32, 1, m_currentFrame, m_pRenderer);
 
 	SDL_RenderPresent(m_pRenderer);
 }
@@ -69,6 +87,7 @@ void Game::update()
 	//m_sourceRectangle.x = 128 * int(((SDL_GetTicks() / 100) % 6));
 	//m_destinationRectangle.x = 128 * int(((SDL_GetTicks() / 100) % 6));
 	m_currentFrame = int(((SDL_GetTicks() / 100) % 6));
+	m_currentFrame2 = int(((SDL_GetTicks() / 50) % 6));
 }
 
 void Game::clean()
@@ -76,6 +95,7 @@ void Game::clean()
 	std::cout << "cleaning game\n";
 	SDL_DestroyWindow(m_pWindow);
 	SDL_DestroyRenderer(m_pRenderer);
+
 	SDL_Quit();
 }
 
