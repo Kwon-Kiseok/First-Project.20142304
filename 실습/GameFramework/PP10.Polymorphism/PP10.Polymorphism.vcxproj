@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{DC9DE779-7097-4405-950F-2C7BC538427E}</ProjectGuid>
     <RootNamespace>PP10Polymorphism</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\user\source\repos\Kwon-Kiseok\GameFramework.20142304\실습\SDL2-2.0.8\include;$(IncludePath)</IncludePath>
-    <ReferencePath>C:\Users\user\source\repos\Kwon-Kiseok\GameFramework.20142304\실습\SDL2-2.0.8\lib\x64;$(ReferencePath)</ReferencePath>
+    <IncludePath>C:\Users\KI\source\repos\GameFramework.20142304\실습\SDL2-2.0.8\include;C:\Users\user\source\repos\Kwon-Kiseok\GameFramework.20142304\실습\SDL2-2.0.8\include;$(IncludePath)</IncludePath>
+    <ReferencePath>C:\Users\KI\source\repos\GameFramework.20142304\실습\SDL2-2.0.8\lib\x64;C:\Users\user\source\repos\Kwon-Kiseok\GameFramework.20142304\실습\SDL2-2.0.8\lib\x64;$(ReferencePath)</ReferencePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -126,6 +126,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="TextureManager.cpp" />
   </ItemGroup>
@@ -133,6 +134,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="TextureManager.h" />
   </ItemGroup>

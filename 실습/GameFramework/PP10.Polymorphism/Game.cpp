@@ -20,7 +20,17 @@ bool Game::init(const char*title, int xpos, int ypos,
 			m_pRenderer = SDL_CreateRenderer(m_pWindow, -1, 0);
 		}
 		SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 255);
+
+		//텍스쳐 등록
 		if (!TheTextureManager::Instance()->load("Assets/animate-alpha.png", "animate", m_pRenderer))
+		{
+			return false;
+		}
+		if (!TheTextureManager::Instance()->load("Assets/simhyang.png", "mob1", m_pRenderer))
+		{
+			return false;
+		}
+		if (!TheTextureManager::Instance()->load("Assets/red.png", "mob2", m_pRenderer))
 		{
 			return false;
 		}
@@ -28,15 +38,23 @@ bool Game::init(const char*title, int xpos, int ypos,
 		m_go = new GameObject();
 		m_player = new Player();
 		m_enemy = new Enemy();
+		m_monster1 = new Monster();
+		m_monster2 = new Monster();
 
 		m_go->load(100, 100, 128, 82, "animate");
 		m_player->load(300, 300, 128, 82, "animate");
 		m_enemy->load(0, 0, 128, 82, "animate");
+		m_monster1->load(0, 50, 64, 64, "mob1");
+		m_monster2->load(0, 100, 64, 64, "mob2");
+		
+		
 
 		//벡터 m_gameObjects 의 제일 뒤쪽에 각 게임오브젝트들을 넣어줌
 		m_gameObjects.push_back(m_go);
 		m_gameObjects.push_back(m_player);
 		m_gameObjects.push_back(m_enemy);
+		m_gameObjects.push_back(m_monster1);
+		m_gameObjects.push_back(m_monster2);
 	}
 	else
 	{
