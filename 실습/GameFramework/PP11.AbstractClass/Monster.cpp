@@ -6,6 +6,7 @@ Monster::Monster(const LoaderParams* pParams) : SDLGameObject(pParams)
 
 void Monster::draw()
 {
+	SDLGameObject::draw();
 }
 
 void Monster::update()
@@ -14,6 +15,7 @@ void Monster::update()
 		control(1, 0, int(((SDL_GetTicks() / 100) % 1)));
 	else if (this->m_textureID == "mob2")
 		control(2, 0, int(((SDL_GetTicks() / 20) % 1)));
+
 }
 
 void Monster::clean()

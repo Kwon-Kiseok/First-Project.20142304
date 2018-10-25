@@ -2,7 +2,6 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "Monster.h"
-#include "GameObject.h"
 #include <vector>
 
 using namespace std;
@@ -11,6 +10,7 @@ class Game
 {
 public:
 	~Game() {}
+
 	bool init(const char* title, int xpos, int ypos,
 		int width, int height, bool fullscreen);
 	void render();
@@ -19,13 +19,14 @@ public:
 	void clean();
 	bool running() { return m_bRunning; }
 
+	//Game 클래스를 싱글턴으로 생성해줌
 	static Game* Instance()
 	{
 		if (s_pInstance == 0)
 		{
 			s_pInstance = new Game();
 			return s_pInstance;
-		}
+		} 
 		return s_pInstance;
 	}
 
@@ -58,5 +59,4 @@ private:
 
 };
 
-Game* Game::s_pInstance = 0;
 typedef Game TheGame;
