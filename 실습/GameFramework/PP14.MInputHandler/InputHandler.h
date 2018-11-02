@@ -23,8 +23,11 @@ public:
 	void clean();	//디바이스 관련 초기화된 부분을 지워줌
 	bool isKeyDown(SDL_Scancode key);
 	bool getMouseButtonState(int buttonNumber);
-
-
+	void onMouseButtonDown(SDL_Event event);
+	void onMouseButtonUp(SDL_Event event);
+	void onKeyDown();
+	void onKeyUp();
+	Vector2D* onMouseMove(SDL_Event event);
 
 	std::vector<bool> m_mouseButtonStates;
 	

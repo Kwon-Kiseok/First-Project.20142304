@@ -35,22 +35,7 @@ bool Game::init(const char*title, int xpos, int ypos,
 			return false;
 		}
 
-		/*m_go = new GameObject();
-		m_player = new Player();
-		m_enemy = new Enemy();
-		m_monster1 = new Monster();
-		m_monster2 = new Monster();
-
-		m_go->load(100, 100, 128, 82, "animate");
-		m_player->load(300, 300, 128, 82, "animate");
-		m_enemy->load(0, 0, 128, 82, "animate");
-		m_monster1->load(0, 50, 64, 64, "mob1");
-		m_monster2->load(0, 100, 64, 64, "mob2");*/
-
-
-
 		//벡터 m_gameObjects 의 제일 뒤쪽에 각 게임오브젝트들을 넣어줌
-		//m_gameObjects.push_back(m_go);
 		m_gameObjects.push_back(new Player(new LoaderParams(100, 100, 128, 82, "animate")));
 		m_gameObjects.push_back(new Enemy(new LoaderParams(300, 300, 128, 82, "animate")));
 		m_gameObjects.push_back(new Monster(new LoaderParams(0, 50, 64, 64, "mob1")));
@@ -78,9 +63,6 @@ void Game::render()
 
 void Game::update()
 {
-	//m_currentFrame = int(((SDL_GetTicks() / 100) % 6));
-	//m_currentFrame2 = int(((SDL_GetTicks() / 50) % 6));
-
 	for (std::vector<GameObject*>::size_type i = 0; i != m_gameObjects.size(); i++)
 	{
 		m_gameObjects[i]->update();
@@ -99,17 +81,5 @@ void Game::clean()
 
 void Game::handleEvents()
 {
-	/*SDL_Event event;
-	if (SDL_PollEvent(&event))
-	{
-		switch (event.type)
-		{
-		case SDL_QUIT:
-			m_bRunning = false;
-			break;
-		default:
-			break;
-		}
-	}*/
 	TheInputHandler::Instance()->update();
 }
