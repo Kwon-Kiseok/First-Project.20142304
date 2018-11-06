@@ -44,5 +44,9 @@ void Player::handleInput()
 	{
 		m_velocity.setY(2);
 	}
+	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE))
+	{
+		std::cout << "ÃÑ¾Ë ¹ß»ç" << std::endl;
+	}
 }
 

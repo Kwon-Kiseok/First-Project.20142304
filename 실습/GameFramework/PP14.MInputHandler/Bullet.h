@@ -1,16 +1,16 @@
 #pragma once
 #include "SDLGameObject.h"
-#include "Bullet.h"
 
-class Player : public SDLGameObject
+class Bullet : public SDLGameObject
 {
 public:
-	Player(const LoaderParams* pParams);
-	~Player() {}
+	Bullet(const LoaderParams* pParams);
+	~Bullet() {}
 
 	virtual void draw();
 	virtual void update();
 	virtual void clean();
+
 private:
-	void handleInput();
+
 };

@@ -34,12 +34,17 @@ bool Game::init(const char*title, int xpos, int ypos,
 		{
 			return false;
 		}
+		if (!TheTextureManager::Instance()->load("Assets/Bullet.png", "bullet", m_pRenderer))
+		{
+			return false;
+		}
 
 		//벡터 m_gameObjects 의 제일 뒤쪽에 각 게임오브젝트들을 넣어줌
 		m_gameObjects.push_back(new Player(new LoaderParams(100, 100, 128, 82, "animate")));
 		m_gameObjects.push_back(new Enemy(new LoaderParams(300, 300, 128, 82, "animate")));
 		m_gameObjects.push_back(new Monster(new LoaderParams(0, 50, 64, 64, "mob1")));
 		m_gameObjects.push_back(new Monster(new LoaderParams(0, 100, 64, 64, "mob2")));
+		m_gameObjects.push_back(new Bullet(new LoaderParams(0, 0, 32, 32, "bullet")));
 	}
 	else
 	{
