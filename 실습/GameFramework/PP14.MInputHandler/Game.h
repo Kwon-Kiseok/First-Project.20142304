@@ -3,6 +3,7 @@
 #include "Enemy.h"
 #include "Monster.h"
 #include "Bullet.h"
+#include "Wall.h"
 #include <vector>
 
 using namespace std;
