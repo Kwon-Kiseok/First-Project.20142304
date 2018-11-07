@@ -1,5 +1,7 @@
 #include "Player.h"
 
+
+
 Player::Player(const LoaderParams* pParams) :
 	SDLGameObject(pParams)
 {
@@ -44,9 +46,12 @@ void Player::handleInput()
 	{
 		m_velocity.setY(2);
 	}
+
+	//스페이스키를 입력받으면 m_gameObjects 뒤에 푸쉬백 해주는 방법으로 미사일 발사 구현
 	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE))
 	{
-		std::cout << "총알 발사" << std::endl;
+		Game::Instance()->m_gameObjects.push_back(new Bullet
+		(new LoaderParams(m_position.getX() + m_width, m_position.getY() + (m_height/3), 32, 32, "bullet")));
 	}
 }
 

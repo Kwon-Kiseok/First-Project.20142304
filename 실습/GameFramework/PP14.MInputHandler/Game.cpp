@@ -44,7 +44,6 @@ bool Game::init(const char*title, int xpos, int ypos,
 		m_gameObjects.push_back(new Enemy(new LoaderParams(300, 300, 128, 82, "animate")));
 		m_gameObjects.push_back(new Monster(new LoaderParams(0, 50, 64, 64, "mob1")));
 		m_gameObjects.push_back(new Monster(new LoaderParams(0, 100, 64, 64, "mob2")));
-		m_gameObjects.push_back(new Bullet(new LoaderParams(0, 0, 32, 32, "bullet")));
 	}
 	else
 	{
