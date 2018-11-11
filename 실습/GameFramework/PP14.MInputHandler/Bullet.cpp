@@ -31,5 +31,6 @@ void Bullet::update()
 void Bullet::clean()
 {
 	isActive = false;
+	Game::Instance()->m_gameObjects.push_back(new Wall(new LoaderParams(500, 100, 64, 64, "bwall")));
 }
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "SDLGameObject.h"
+#include "Game.h"
 
 class Wall : public SDLGameObject
 {
