@@ -3,11 +3,15 @@
 Bullet::Bullet(const LoaderParams* pParams) :
 	SDLGameObject(pParams)
 {
+	isActive = true;
 }
 
 void Bullet::draw()
 {
-	SDLGameObject::draw();
+	if (isActive == true)
+	{
+		SDLGameObject::draw();
+	}
 }
 
 void Bullet::update()
@@ -20,12 +24,12 @@ void Bullet::update()
 		m_position.getY() < 164 &&
 		m_position.getY() + m_height > 100)
 	{
-		delete this;
+		this->clean();
 	}
 }
 
 void Bullet::clean()
 {
-	
+	isActive = false;
 }
 
